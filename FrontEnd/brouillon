@@ -1,0 +1,125 @@
+            <figure>
+				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+				<figcaption>Abajour Tahina</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
+				<figcaption>Appartement Paris V</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
+				<figcaption>Restaurant Sushisen - Londres</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
+				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
+				<figcaption>Structures Thermopolis</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
+				<figcaption>Appartement Paris X</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
+				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
+				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
+				<figcaption>Appartement Paris XVIII</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
+				<figcaption>Bar “Lullaby” - Paris</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
+				<figcaption>Hotel First Arte - New Delhi</figcaption>
+			</figure>
+
+
+            /*document.addEventListener('DOMContentLoaded', function() {
+    const images = [
+        { src: 'assets/images/abajour-tahina.png', alt: 'Abajour Tahina' },
+        { src: 'assets/images/appartement-paris-v.png', alt: 'Appartement Paris V' },
+        { src: 'assets/images/restaurant-sushisen-londres.png', alt: 'Restaurant Sushisen - Londres' },
+        { src: 'assets/images/la-balisiere.png', alt: 'Villa “La Balisiere” - Port Louis' },
+        { src: 'assets/images/structures-thermopolis.png', alt: 'Structures Thermopolis' },
+        { src: 'assets/images/appartement-paris-x.png', alt: 'Appartement Paris X' },
+        { src: 'assets/images/le-coteau-cassis.png', alt: 'Pavillon “Le coteau” - Cassis' },
+        { src: 'assets/images/villa-ferneze.png', alt: 'Villa Ferneze - Isola d’Elba' },
+        { src: 'assets/images/appartement-paris-xviii.png', alt: 'Appartement Paris XVIII' },
+        { src: 'assets/images/bar-lullaby-paris.png', alt: 'Bar “Lullaby” - Paris' },
+        { src: 'assets/images/hotel-first-arte-new-delhi.png', alt: 'Hotel First Arte - New Delhi' },
+        // Ajoutez tous vos autres objets images ici
+    ];
+
+const gallery = document.querySelector('.gallery');
+images.forEach(image => {
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = image.src;
+    img.alt = image.alt;
+
+    const figcaption = document.createElement('figcaption');
+    figcaption.textContent = image.alt;
+
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+    gallery.appendChild(figure);
+    });
+});
+
+
+
+// Supposons que 'button-container' est l'élément où vous ajoutez vos boutons
+
+// Créez un nouveau bouton dynamique
+const newButton = document.createElement('button'); // Crée un bouton
+newButton.innerText = 'Tous'; // Définit le texte du bouton
+newButton.className = 'all-buttons'; // Attribue une classe commune
+newButton.id = 'button'; // Attribue un id si nécessaire
+*/
+/*// Ajoutez des gestionnaires d'événements si vous le souhaitez
+customButton.addEventListener('click', () => {
+  // Action à réaliser quand le bouton est cliqué
+  console.log('Bouton "Voir tous les projets" cliqué !');
+});*/
+
+/*// Ajoutez le bouton au conteneur
+const buttonContainer = document.querySelector('.filter_buttons');
+buttonContainer.appendChild(newButton); // Ajoute le nouveau bouton au conteneu 
+
+
+
+
+
+// Supposons que vos données soient stockées dans une variable
+// Votre tableau d'objets JSON
+
+/*const data = [
+    { "id": 1, "name": "Objets" },
+    { "id": 2, "name": "Appartements" },
+    { "id": 3, "name": "Hôtels & Restaurants" }
+  ];
+
+// Sélectionnez l'élément du DOM où vous voulez ajouter les boutons
+const filter_buttons = document.querySelector('.filter_buttons');
+
+// Parcourez les données et créez les boutons
+data.forEach(item => {
+  const button = document.createElement('button'); // Crée un bouton
+  button.innerText = item.name; // Définit le texte du bouton
+  button.id = `button-${item.id}`; // Attribue un id unique au bouton
+  button.className = 'all-buttons'; // Attribue également la même classe
+  filter_buttons.appendChild(button); // Ajoute le bouton au conteneur
+});*/
+
+
+
