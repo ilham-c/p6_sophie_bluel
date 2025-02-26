@@ -26,14 +26,21 @@ exports.signup = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
+	console.log("test");
+	console.log(req);
 	const user = await Users.findOne({where: {email: req.body.email}});
+	console.log(user);
 	if(user === null){
 		return res.status(404).json({message: 'user not found'})
 	}else {
 		const valid = await bcrypt.compare(req.body.password, user.password)
+		console.log(user.password);
 		if(!valid){
+			console.log(valid);
 			return res.status(401).json({ error: new Error('Not Authorized') })
+			
 		}
+	
 		return res.status(200).json({
 			userId: user.id,
 			token: jwt.sign(
