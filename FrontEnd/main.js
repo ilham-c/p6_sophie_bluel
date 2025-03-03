@@ -86,3 +86,27 @@ async function generateFilterButtons(){
     createCategoryButtons(categories)
 }
 generateFilterButtons()
+
+
+// Ouvrir la modale
+document.getElementById('openModalBtn').onclick = function() {
+    document.getElementById('myModal').style.display = "block";
+  }
+  
+  // Fermer la modale
+  document.querySelector('.close').onclick = function() {
+    document.getElementById('myModal').style.display = "none";
+  }
+  
+  // Fermer la modale en cliquant en dehors
+  window.onclick = function(event) {
+    if (event.target === document.getElementById('myModal')) {
+      document.getElementById('myModal').style.display = "none";
+    }
+  }
+  
+  // Gestion de l'envoi du formulaire
+  document.getElementById('projectForm').onsubmit = function(e) {
+    e.preventDefault();
+    // Ajoutez votre logique pour envoyer les données à l'API ici
+  };
