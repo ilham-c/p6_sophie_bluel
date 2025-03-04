@@ -9,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -38,8 +39,8 @@
 	</section>
 	<section id="portfolio">
 		<div class="edition">
-		<h2>Mes Projets</h2>
-		<div class="modif"><p>Modifier</p></div>
+		<h2>Mes Projets </h2>
+		<div class="modif"><i class="fa-regular fa-pen-to-square" id="openModalBtn"></i><span>Modifier</span></div>
 		</div>
 		<div class="filter_buttons"></div>
 		<div class="gallery"></div>
@@ -61,17 +62,19 @@
 	</section>
 	<!-- La modale -->
 	 <!-- Bouton pour ouvrir la modale -->
-<button id="openModalBtn">Ajouter une photo</button>
+
 <div id="myModal" class="modal">
 	<div class="modal-content">
-	  <span class="close">&times;</span>
-	  <h2>Ajouter un projet</h2>
-	  <form id="projectForm">
-		<!-- Champs de formulaire pour saisir les détails du projet -->
-		<input type="text" placeholder="Nom du projet" required>
-		<input type="file" required>
-		<button type="submit">Soumettre</button>
-	  </form>
+	  <span class="close"><i class="fa-solid fa-xmark"></i></span>
+	  <h2 class="title_modal">Galerie photo</h2>
+	  <form id="projectForm" action="#" method="post">
+		<!-- Contenu du formulaire -->
+	</form>
+	<div class="delete"><i class="fa-regular fa-trash-can"></i></div>
+	  <div class="img_modal"></div>	
+	  <div class="btn_modal">
+	  <button>Ajouter une photo</button>
+	</div>
 	</div>
   </div>
 </main>

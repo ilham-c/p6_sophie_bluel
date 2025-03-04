@@ -123,7 +123,6 @@ li:hover {
 }
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
 }
 .filter_buttons{
 	display: flex;
@@ -163,13 +162,31 @@ button{
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 10px;
+	margin-bottom: 1rem;
 
 }
-.modif p{
+.modif {
 	display: flex;
 	text-align: center;
+	gap: 10px;
 }
-	
+
+.img_modal img{
+	width: 78px;
+	height: 139px;
+}
+.img_modal {
+	display: inline-flex;
+	flex-wrap: wrap;
+    gap: 15px;
+	padding: 50px;
+}
+.delete{
+	position: absolute ;
+	top: 142px;
+    left: 128px;
+}
 	.modal {
 		display: none; /* Caché par défaut */
 		position: fixed; 
@@ -183,25 +200,38 @@ button{
 		background-color: rgba(0,0,0,0.4); 
 	  }
 	  .modal-content {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		position: relative;
 		background-color: #fefefe;
 		margin: 15% auto; 
 		padding: 20px;
 		border: 1px solid #888;
-		width: 80%; 
+		width: 630px;
+		height: 688px; 
+
 	  }
 	  .close {
-		color: #aaa;
-		float: right;
+		cursor: pointer;
+		position: absolute;
+		right: 2px;
+		top:0;
 		font-size: 28px;
 		font-weight: bold;
 	  }
-	  .close:hover,
-	  .close:focus {
+	  .title_modal{
+		display: flex;
+		justify-content: center;
 		color: black;
-		text-decoration: none;
-		cursor: pointer;
+		font-size: 26px;
+		font-weight: 400;
+		font-family: work sans-serif;
 	  }
-	  
+	  .btn_modal{
+		display: flex;
+		justify-content: center;
+	  }
 
 .gallery {
 	width: 100%;

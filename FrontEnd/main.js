@@ -65,11 +65,12 @@ const displayWorks = (works) => {
         img.alt = work.title; // Texte alternatif pour l'accessibilité
         div.appendChild(img);
 
-        const title = document.createElement('figcation'); // Titre pour chaque projet
+        const title = document.createElement('figcaption'); // Titre pour chaque projet
         title.textContent = work.title; // Insérer le titre
         div.appendChild(title);
 
         gallery.appendChild(div); // Ajoute le conteneur à la galerie
+        
     });
 };
 
@@ -110,3 +111,27 @@ document.getElementById('openModalBtn').onclick = function() {
     e.preventDefault();
     // Ajoutez votre logique pour envoyer les données à l'API ici
   };
+
+
+ 
+// Afficher toutes les images dans la modale
+const showAllImagesInModal = () => {
+    const modalImageContainer = document.querySelector('.img_modal'); // Sélectionnez le conteneur d'images de la modale
+    modalImageContainer.innerHTML = ''; // Réinitialiser le contenu de la modale
+
+    works.forEach(work => {
+        const img = document.createElement('img'); // Créez un élément image
+        const imgWrapper = document.createElement('div'); // Créez un wrapper pour l'image et le bouton
+        img.src = work.imageUrl; // Définissez l'URL de l'image
+        img.alt = work.title; // Texte alternatif
+        img.classList.add('modal_image'); // Ajouter une classe pour le style si nécessaire
+        modalImageContainer.appendChild(img); // Ajoutez l'image au conteneur de la modale 
+    });
+
+
+};
+
+document.getElementById('openModalBtn').onclick = function() {
+    showAllImagesInModal(); // Appel de la fonction pour afficher les images
+    document.getElementById('myModal').style.display = "block";
+}
