@@ -14,11 +14,15 @@ function login(username, password) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email:'sophie.bluel@test.tld', password:'S0phie '})
+        body: JSON.stringify({ email: username, password:password})
     })
     .then(response => {
         if (!response.ok) {
             // Renvoyer une erreur pour le traitement ci-dessous
+            
+
+
+
             return response.json().then(error => { throw new Error(error.message); });
         }
         return response.json(); // Récupérer les données si la réponse est correcte

@@ -93,6 +93,7 @@ nav ul {
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+	cursor: pointer;
 }
 
 li:hover {
@@ -140,6 +141,8 @@ button{
 	color: #1D6154;
 	font-size: 16px;
 	font-weight: 700;
+	padding-right: 50px;
+    padding-left: 50px;
 	&:hover{
 		background-color: #1D6154;
 		color: white;
@@ -176,6 +179,17 @@ button{
 	width: 78px;
 	height: 139px;
 }
+.fa-regular, .far {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    padding: 3px;
+
+}
+.image-container i{
+	position: relative;
+	bottom: 118px;
+    right: 20px;
+}
 .img_modal {
 	display: inline-flex;
 	flex-wrap: wrap;
@@ -187,6 +201,98 @@ button{
 	top: 142px;
     left: 128px;
 }
+.select-modal{
+	position: relative;
+	display: none; /* Caché par défaut */
+	position: fixed; 
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.4); 
+}
+.wrapper-select{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	background-color: #fefefe;
+	margin: 15% auto; 
+	padding: 20px;
+	border: 1px solid #888;
+	width: 630px;
+	height: 688px; 
+	gap: 83px;
+
+}
+.close-select{
+		cursor: pointer;
+		position: absolute;
+		right: 40px;
+		top:30px;
+		font-size: 28px;
+		font-weight: bold;
+}
+.go-back i{
+	position: absolute;
+	cursor: pointer;
+	font-size: 26px;
+	top:30px;
+	left: 17px;
+}
+.ajout-title{
+	font-size: 26px;
+}
+.ajout-image{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #E8F1F6;
+    width: 420px;
+    height: 169px;
+	gap: 10px;
+}
+
+.ajout-image i{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 76px;
+    color: #B9C5CC;
+
+}
+#btn-ajout-photo{
+	background-color: #CBD6DC;
+	border: none
+}
+.info-image{
+	font-size: 10px;
+}
+.selection{
+	display: flex;
+	flex-direction: column;
+
+}
+.selection input{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	width: 420px;
+}
+#category{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
 	.modal {
 		display: none; /* Caché par défaut */
 		position: fixed; 
@@ -215,8 +321,8 @@ button{
 	  .close {
 		cursor: pointer;
 		position: absolute;
-		right: 2px;
-		top:0;
+		right: 40px;
+		top:30px;
 		font-size: 28px;
 		font-weight: bold;
 	  }
@@ -231,6 +337,7 @@ button{
 	  .btn_modal{
 		display: flex;
 		justify-content: center;
+
 	  }
 
 .gallery {

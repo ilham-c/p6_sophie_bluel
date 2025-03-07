@@ -59,7 +59,6 @@ const displayWorks = (works) => {
 
     works.forEach(work => {
         const div = document.createElement('figure'); // Créez un conteneur pour chaque projet
-
         const img = document.createElement('img');
         img.src = work.imageUrl; // L'URL de l'image
         img.alt = work.title; // Texte alternatif pour l'accessibilité
@@ -121,11 +120,32 @@ const showAllImagesInModal = () => {
 
     works.forEach(work => {
         const img = document.createElement('img'); // Créez un élément image
-        const imgWrapper = document.createElement('div'); // Créez un wrapper pour l'image et le bouton
         img.src = work.imageUrl; // Définissez l'URL de l'image
         img.alt = work.title; // Texte alternatif
         img.classList.add('modal_image'); // Ajouter une classe pour le style si nécessaire
         modalImageContainer.appendChild(img); // Ajoutez l'image au conteneur de la modale 
+
+              // Créez un conteneur pour chaque image et l'icône
+              const imageContainer = document.createElement('div');
+              imageContainer.classList.add('image-container'); // Classe pour styliser le conteneur de l'image
+      
+      
+              // Créez l'icône de la poubelle
+              const trashIcon = document.createElement('i');
+              trashIcon.classList.add('fa-regular', 'fa-trash-can'); // Ajouter les classes de l'icône de la poubelle
+      
+              // Vous pouvez ajouter un gestionnaire d'événements pour supprimer l'image si nécessaire
+              trashIcon.addEventListener('click', () => {
+                  imageContainer.remove(); // Supprimer l'image et l'icône quand on clique sur la poubelle
+              });
+      
+              // Ajouter l'image et l'icône au conteneur
+              imageContainer.appendChild(img);
+              imageContainer.appendChild(trashIcon);
+      
+              // Ajouter le conteneur de l'image à la modale
+              modalImageContainer.appendChild(imageContainer);
+
     });
 
 

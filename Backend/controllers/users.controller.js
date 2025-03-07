@@ -27,7 +27,7 @@ exports.signup = async (req, res) => {
 
 exports.login = async (req, res) => {
 	console.log("test");
-	console.log(req);
+	console.log(req.body.email);
 	const user = await Users.findOne({where: {email: req.body.email}});
 	console.log(user);
 	if(user === null){

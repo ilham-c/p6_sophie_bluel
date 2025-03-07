@@ -20,7 +20,7 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li>login</li>
+			<li href="login.html" >login</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -67,16 +67,49 @@
 	<div class="modal-content">
 	  <span class="close"><i class="fa-solid fa-xmark"></i></span>
 	  <h2 class="title_modal">Galerie photo</h2>
-	  <form id="projectForm" action="#" method="post">
-		<!-- Contenu du formulaire -->
-	</form>
-	<div class="delete"><i class="fa-regular fa-trash-can"></i></div>
+	  <form id="projectForm" action="#" method="post"></form>
 	  <div class="img_modal"></div>	
 	  <div class="btn_modal">
-	  <button>Ajouter une photo</button>
+	  <button class="add_photo_btn">Ajouter une photo</button>
 	</div>
 	</div>
   </div>
+
+  <!-- Modal pour ajouter des images -->
+  <aside class="select-modal" style="display: block">
+	<div class="wrapper-select">
+	  <div class="go-back"><i class="fa-solid fa-arrow-left"></i></div>
+	  <div class="close-select"><i class="fa-solid fa-x"></i></div>
+	  <h4 class="ajout-title">Ajout photo</h4>
+	  <div class="ajout-image">
+		<i class="fa-solid fa-image"></i>
+		<button id="btn-ajout-photo">+ Ajouter photo</button>
+		<input
+		  type="file"
+		  id="fileInput"
+		  style="display: none"
+		  accept="image/*"
+		/>
+		<p class="info-image">jpg, png : 4mo max</p>
+	  </div>
+	  <!-- Sélectiones categories des images -->
+	  <div class="selection">
+		<label for="title">Titre</label>
+		<input type="text" id="title" />
+		<label for="category">Catégorie</label>
+		<select id="category">
+		  <option value="0"></option>
+		  <option value="Objets">Objets</option>
+		  <option value="Appartements">Appartements</option>
+		  <option value="Hôtels & Restaurants">
+			Hôtels & Restaurants
+		  </option>
+		</select>
+	  </div>
+	  <button class="submit-images" id="valider-modal">Valider</button>
+	</div>
+  </aside>
+
 </main>
 
 <footer>
