@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Afficher ou masquer le mode édition en fonction du token
     const modeEdition = document.querySelector('.mode_edition');
     if (token && modeEdition) {
-        modeEdition.style.display = 'block'; // Afficher le mode édition si connecté
+        modeEdition.style.display = 'flex'; // Afficher le mode édition si connecté
     } else if (modeEdition) {
         modeEdition.style.display = 'none'; // Masquer le mode édition si pas connecté
     }
@@ -194,7 +194,6 @@ const logoutUser = () => {
     }
     window.location.href = 'index.html'; // Rediriger vers la page d'accueil après déconnexion
 };
-
 
 // Ouvrir la seconde modale (pour ajouter une photo)
 document.querySelector('.add_photo_btn').addEventListener('click', function() {
@@ -222,37 +221,92 @@ document.querySelector('.go-back').addEventListener('click', function() {
 
 // Ajouter une photo avec la seconde modale
 document.getElementById('btn-ajout-photo').addEventListener('click', function(){
-     // Ouvrir le champ de fichier (input file)
-     document.getElementById('fileInput').click();  
-    });
+    // Ouvrir le champ de fichier (input file)
+    document.getElementById('fileInput').click();  
+});
 
-    // Écouter le changement sur l'input de fichier pour récupérer l'image sélectionnée
+// Écouter le changement sur l'input de fichier pour récupérer l'image sélectionnée
 document.getElementById('fileInput').addEventListener('change', (event) => {
-    const file = event.target.files[0];  // Récupérer le fichier sélectionné
-    if (file) {
-        const reader = new FileReader();
+   const file = event.target.files[0];  // Récupérer le fichier sélectionné
+   if (file) {
+       const reader = new FileReader();
 
-        // Lorsque le fichier est chargé, afficher l'image dans la modale
-        reader.onload = function(e) {
-            const imageUrl = e.target.result;  // URL de l'image téléchargée
-            displayImagePreview(imageUrl);  // Afficher l'image prévisualisée dans la modale
-        };
+       // Lorsque le fichier est chargé, afficher l'image dans la modale
+       reader.onload = function(e) {
+           const imageUrl = e.target.result;  // URL de l'image téléchargée
+           displayImagePreview(imageUrl);  // Afficher l'image prévisualisée dans la modale
+           
 
-        reader.readAsDataURL(file);  // Lire le fichier et obtenir l'URL base64
-    }
+       };
+
+       reader.readAsDataURL(file);  // Lire le fichier et obtenir l'URL base64
+   }
 });
 
 // Fonction pour afficher l'image prévisualisée dans la modale
 function displayImagePreview(imageUrl) {
-    const imagePreviewContainer = document.querySelector('.ajout-image');  // Conteneur pour l'image dans la modale
-    imagePreviewContainer.innerHTML = '';  // Réinitialiser (pour une nouvelle image)
+   const imagePreviewContainer = document.querySelector('.ajout-image');  // Conteneur pour l'image dans la modale
+   imagePreviewContainer.innerHTML = '';  // Réinitialiser (pour une nouvelle image)
 
-    // Créer un élément img pour afficher l'image
-    const img = document.createElement('img');
-    img.src = imageUrl;  // Définir la source de l'image
-    img.alt = 'Image prévisualisée';
-    img.classList.add('image-preview');  // Ajouter une classe pour le style si nécessaire
+   // Créer un élément img pour afficher l'image
+   const img = document.createElement('img');
+   img.src = imageUrl;  // Définir la source de l'image
+   img.alt = 'Image prévisualisée';
+   img.classList.add('image-preview');  // Ajouter une classe pour le style si nécessaire
 
-    // Ajouter l'image au conteneur de la modale
-    imagePreviewContainer.appendChild(img);
+   // Ajouter l'image au conteneur de la modale
+   imagePreviewContainer.appendChild(img);
+
+   // Active le bouton valider lorsque tous les champs sont remplis
+   const validerButton = document.getElementById("valider-modal");
+   const titleInput = document.getElementById("title");
+   const categoryInput = document.getElementById("category");
+
+   titleInput.addEventListener("input", checkFormValidity);
+   categoryInput.addEventListener("change", checkFormValidity);
+
+   function checkFormValidity() {
+       const title = titleInput.value.trim();
+       const category = categoryInput.value;
+
+       if (imageUrl && title && category !== "0") {
+           validerButton.disabled = false;
+       } else {
+           validerButton.disabled = true;
+       }
+   }
+
+   // Fonction pour envoyer l'image dans la galerie
+   validerButton.addEventListener('click', () => {
+       if (titleInput.value.trim() && categoryInput.value !== "0") {
+           const newWork = {
+               imageUrl,
+               title: titleInput.value,
+               categoryId: categoryInput.value
+           };
+           addWorkToGallery(newWork);
+           // Fermer la modale et réinitialiser les champs
+           document.querySelector('.select-modal').style.display = 'none';
+           titleInput.value = '';
+           categoryInput.selectedIndex = 0;
+           imagePreviewContainer.innerHTML = '';
+       }
+   });
+}
+
+// Ajouter le travail à la galerie
+function addWorkToGallery(work) {
+   const gallery = document.querySelector('.gallery');
+   const figure = document.createElement('figure');
+   const img = document.createElement('img');
+   img.src = work.imageUrl;
+   img.alt = work.title;
+   const caption = document.createElement('figcaption');
+   caption.textContent = work.title;
+
+   figure.appendChild(img);
+   figure.appendChild(caption);
+   gallery.appendChild(figure);
+
+   works.push(work); // Ajouter le nouveau travail à la liste globale works
 }

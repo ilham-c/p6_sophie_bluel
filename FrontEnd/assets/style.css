@@ -130,10 +130,10 @@ li:hover {
 	flex-direction: row;
 	justify-content: center;
 	gap: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 4rem;
 }
 button{
-	background-color: white;
+	
 	border-radius: 20px;
 	padding: 10px;
 	border-color: #1D6154;
@@ -143,6 +143,7 @@ button{
 	font-weight: 700;
 	padding-right: 50px;
     padding-left: 50px;
+	background-color: white;
 	&:hover{
 		background-color: #1D6154;
 		color: white;
@@ -162,13 +163,17 @@ button{
 	background-color: black;
 	color: white;
 	text-align: center;
+	flex-direction: row;
+    align-items: center;
+    justify-content: center;
+	cursor: pointer;
 }
 .edition{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	margin-bottom: 1rem;
+	margin-bottom: 3rem;
 
 }
 .modif {
@@ -178,8 +183,12 @@ button{
 }
 
 .img_modal img{
+	height: 139px;
+}
+.image-container{
 	width: 78px;
 	height: 139px;
+
 }
 .fa-regular, .far {
     font-family: "Font Awesome 6 Free";
@@ -189,14 +198,18 @@ button{
 }
 .image-container i{
 	position: relative;
-	bottom: 118px;
-    right: 20px;
+	bottom: 130px;
+    left: 72px;
+	color: white;
+    background-color: black;
 }
 .img_modal {
-	display: inline-flex;
-	flex-wrap: wrap;
-    gap: 15px;
-	padding: 50px;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+	margin: 51px;
+	border-bottom: solid 1px grey;
+	padding-bottom: 65px;
 }
 .delete{
 	position: absolute ;
@@ -258,6 +271,12 @@ button{
     width: 420px;
     height: 169px;
 	gap: 10px;
+	
+
+}
+.ajout-image img{
+	width: 129px;
+	height: 192px;
 }
 
 .ajout-image i{
@@ -267,15 +286,23 @@ button{
     align-items: center;
     font-size: 76px;
     color: #B9C5CC;
+	margin-top: 10px;
 
 }
 #btn-ajout-photo{
 	background-color: #CBD6DC;
 	border: none
 }
+.add_photo_btn{
+	background-color: #1D6154;
+	color: white;
+	cursor: pointer;
+}
 .info-image{
 	font-size: 10px;
+	padding-bottom: 20px;
 }
+
 .selection{
 	display: flex;
 	flex-direction: column;
@@ -332,8 +359,8 @@ button{
 		margin: 15% auto; 
 		padding: 20px;
 		border: 1px solid #888;
-		width: 630px;
-		height: 688px; 
+		width: 646px;
+		height: 725px;
 
 	  }
 	  .close {
@@ -341,7 +368,7 @@ button{
 		position: absolute;
 		right: 40px;
 		top:30px;
-		font-size: 28px;
+		font-size: 24px;
 		font-weight: bold;
 	  }
 	  .title_modal{
@@ -350,14 +377,12 @@ button{
 		color: black;
 		font-size: 26px;
 		font-weight: 400;
-		font-family: work sans-serif;
+		font-family: 'Work Sans';
 	  }
 	  .btn_modal{
 		display: flex;
 		justify-content: center;
-		padding-top: 30px;
-		border-top: solid 1px grey;
-
+		margin-top: -25px;
 	  }
 
 .gallery {
