@@ -183,6 +183,15 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (modeEdition) {
         modeEdition.style.display = 'none'; // Masquer le mode édition si pas connecté
     }
+    // Afficher ou masquer la div "modif" en fonction du token
+    const modifDiv = document.querySelector('.modif');
+    if (modifDiv) {
+        if (token) {
+            modifDiv.style.display = 'block'; // Afficher la div si connecté
+        } else {
+            modifDiv.style.display = 'none'; // Cacher la div si déconnecté
+        }
+    }
 });
 
 // Fonction de déconnexion
@@ -191,6 +200,10 @@ const logoutUser = () => {
     const modeEdition = document.querySelector('.mode_edition');
     if (modeEdition) {
         modeEdition.style.display = 'none'; // Masquer le mode édition
+    }
+    const modifDiv = document.querySelector('.modif');
+    if (modifDiv) {
+        modifDiv.style.display = 'none'; // Masquer la div "modif"
     }
     window.location.href = 'index.html'; // Rediriger vers la page d'accueil après déconnexion
 };
@@ -326,6 +339,7 @@ function resetAjoutImage() {
     
 
 }
+
 
 
 // Ajouter le travail à la galerie
