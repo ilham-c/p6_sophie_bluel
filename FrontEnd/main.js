@@ -228,6 +228,7 @@ document.getElementById('btn-ajout-photo').addEventListener('click', function(){
 // Écouter le changement sur l'input de fichier pour récupérer l'image sélectionnée
 document.getElementById('fileInput').addEventListener('change', (event) => {
    const file = event.target.files[0];  // Récupérer le fichier sélectionné
+   const fileInput = event.target;
    if (file) {
        const reader = new FileReader();
 
@@ -240,13 +241,29 @@ document.getElementById('fileInput').addEventListener('change', (event) => {
        };
 
        reader.readAsDataURL(file);  // Lire le fichier et obtenir l'URL base64
+       fileInput.value='';
    }
 });
 
+
+
+
 // Fonction pour afficher l'image prévisualisée dans la modale
 function displayImagePreview(imageUrl) {
-   const imagePreviewContainer = document.querySelector('.ajout-image');  // Conteneur pour l'image dans la modale
-   imagePreviewContainer.innerHTML = '';  // Réinitialiser (pour une nouvelle image)
+  /* const imagePreviewContainer = document.querySelector('.ajout-image');  // Conteneur pour l'image dans la modale
+   imagePreviewContainer.innerHTML = '';  // Réinitialiser (pour une nouvelle image)*/
+
+    const imageContainer = document.querySelector('.image_container');
+    const icon = document.querySelector('.ajout-image i');
+    const addButtun = document.getElementById('btn-ajout-photo');
+    const infoTexte = document.querySelector('.info-image');
+
+    icon.style.display='none';
+    addButtun.style.display='none';
+    infoTexte.style.display='none';
+    imageContainer.innerHTML = ''; 
+
+
 
    // Créer un élément img pour afficher l'image
    const img = document.createElement('img');
@@ -255,7 +272,8 @@ function displayImagePreview(imageUrl) {
    img.classList.add('image-preview');  // Ajouter une classe pour le style si nécessaire
 
    // Ajouter l'image au conteneur de la modale
-   imagePreviewContainer.appendChild(img);
+   imageContainer.appendChild(img);
+
 
    // Active le bouton valider lorsque tous les champs sont remplis
    const validerButton = document.getElementById("valider-modal");
@@ -265,17 +283,18 @@ function displayImagePreview(imageUrl) {
    titleInput.addEventListener("input", checkFormValidity);
    categoryInput.addEventListener("change", checkFormValidity);
 
+ 
+
    function checkFormValidity() {
-       const title = titleInput.value.trim();
-       const category = categoryInput.value;
-
-       if (imageUrl && title && category !== "0") {
-           validerButton.disabled = false;
-       } else {
-           validerButton.disabled = true;
-       }
-   }
-
+    const title = titleInput.value.trim();
+    const category = categoryInput.value;
+  
+    if (imageUrl && title && category !== "0") {
+        validerButton.disabled = false;
+    } else {
+        validerButton.disabled = true;
+    }
+}
    // Fonction pour envoyer l'image dans la galerie
    validerButton.addEventListener('click', () => {
        if (titleInput.value.trim() && categoryInput.value !== "0") {
@@ -289,10 +308,25 @@ function displayImagePreview(imageUrl) {
            document.querySelector('.select-modal').style.display = 'none';
            titleInput.value = '';
            categoryInput.selectedIndex = 0;
-           imagePreviewContainer.innerHTML = '';
+           resetAjoutImage()
        }
    });
 }
+
+function resetAjoutImage() {
+    const imageContainer = document.querySelector('.image_container');
+    const icon = document.querySelector('.ajout-image i');
+    const addButtun = document.getElementById('btn-ajout-photo');
+    const infoTexte = document.querySelector('.info-image');
+
+    imageContainer.innerHTML = ''; 
+    icon.style.display='block';
+    addButtun.style.display='block';
+    infoTexte.style.display='block';
+    
+
+}
+
 
 // Ajouter le travail à la galerie
 function addWorkToGallery(work) {

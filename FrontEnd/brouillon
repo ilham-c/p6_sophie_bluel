@@ -1,130 +1,73 @@
-            /*<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
+// Fonction pour afficher l'image prévisualisée dans la modale//
+function displayImagePreview(imageUrl) {
+	const imagePreviewContainer = document.querySelector('.ajout-image');  // Conteneur pour l'image dans la modale
+	imagePreviewContainer.innerHTML = '';  // Réinitialiser (pour une nouvelle image)
 
-
-            /*document.addEventListener('DOMContentLoaded', function() {
-    const images = [
-        { src: 'assets/images/abajour-tahina.png', alt: 'Abajour Tahina' },
-        { src: 'assets/images/appartement-paris-v.png', alt: 'Appartement Paris V' },
-        { src: 'assets/images/restaurant-sushisen-londres.png', alt: 'Restaurant Sushisen - Londres' },
-        { src: 'assets/images/la-balisiere.png', alt: 'Villa “La Balisiere” - Port Louis' },
-        { src: 'assets/images/structures-thermopolis.png', alt: 'Structures Thermopolis' },
-        { src: 'assets/images/appartement-paris-x.png', alt: 'Appartement Paris X' },
-        { src: 'assets/images/le-coteau-cassis.png', alt: 'Pavillon “Le coteau” - Cassis' },
-        { src: 'assets/images/villa-ferneze.png', alt: 'Villa Ferneze - Isola d’Elba' },
-        { src: 'assets/images/appartement-paris-xviii.png', alt: 'Appartement Paris XVIII' },
-        { src: 'assets/images/bar-lullaby-paris.png', alt: 'Bar “Lullaby” - Paris' },
-        { src: 'assets/images/hotel-first-arte-new-delhi.png', alt: 'Hotel First Arte - New Delhi' },
-        // Ajoutez tous vos autres objets images ici
-    ];
-
-const gallery = document.querySelector('.gallery');
-images.forEach(image => {
-    const figure = document.createElement('figure');
-    const img = document.createElement('img');
-    img.src = image.src;
-    img.alt = image.alt;
-
-    const figcaption = document.createElement('figcaption');
-    figcaption.textContent = image.alt;
-
-    figure.appendChild(img);
-    figure.appendChild(figcaption);
-    gallery.appendChild(figure);
-    });
-});
-
-
-
-// Supposons que 'button-container' est l'élément où vous ajoutez vos boutons
-
-// Créez un nouveau bouton dynamique
-const newButton = document.createElement('button'); // Crée un bouton
-newButton.innerText = 'Tous'; // Définit le texte du bouton
-newButton.className = 'all-buttons'; // Attribue une classe commune
-newButton.id = 'button'; // Attribue un id si nécessaire
-*/
-/*// Ajoutez des gestionnaires d'événements si vous le souhaitez
-customButton.addEventListener('click', () => {
-  // Action à réaliser quand le bouton est cliqué
-  console.log('Bouton "Voir tous les projets" cliqué !');
-});*/
-
-/*// Ajoutez le bouton au conteneur
-const buttonContainer = document.querySelector('.filter_buttons');
-buttonContainer.appendChild(newButton); // Ajoute le nouveau bouton au conteneu 
-
-
-
-
-
-// Supposons que vos données soient stockées dans une variable
-// Votre tableau d'objets JSON
-
-/*const data = [
-    { "id": 1, "name": "Objets" },
-    { "id": 2, "name": "Appartements" },
-    { "id": 3, "name": "Hôtels & Restaurants" }
-  ];
-
-// Sélectionnez l'élément du DOM où vous voulez ajouter les boutons
-const filter_buttons = document.querySelector('.filter_buttons');
-
-// Parcourez les données et créez les boutons
-data.forEach(item => {
-  const button = document.createElement('button'); // Crée un bouton
-  button.innerText = item.name; // Définit le texte du bouton
-  button.id = `button-${item.id}`; // Attribue un id unique au bouton
-  button.className = 'all-buttons'; // Attribue également la même classe
-  filter_buttons.appendChild(button); // Ajoute le bouton au conteneur
-});*/
-
-
-
-
-
-
-
-
+ 
+	// Créer un élément img pour afficher l'image
+	const img = document.createElement('img');
+	img.src = imageUrl;  // Définir la source de l'image
+	img.alt = 'Image prévisualisée';
+	img.classList.add('image-preview');  // Ajouter une classe pour le style si nécessaire
+ 
+	// Ajouter l'image au conteneur de la modale
+	imagePreviewContainer.appendChild(img);
+	console.log("✅ Image ajoutée avec succès !");
+ 
+ 
+ 
+	// Active le bouton valider lorsque tous les champs sont remplis
+	const validerButton = document.getElementById("valider-modal");
+	const titleInput = document.getElementById("title");
+	const categoryInput = document.getElementById("category");
+ 
+	titleInput.addEventListener("input", checkFormValidity);
+	categoryInput.addEventListener("change", checkFormValidity);
+ 
+	function checkFormValidity() {
+		const title = titleInput.value.trim();
+		const category = categoryInput.value;
+ 
+		if (imageUrl && title && category !== "0") {
+			validerButton.disabled = false;
+		} else {
+			validerButton.disabled = true;
+		}
+	}
+ 
+ 
+	// Fonction pour envoyer l'image dans la galerie
+	validerButton.addEventListener('click', () => {
+		if (titleInput.value.trim() && categoryInput.value !== "0") {
+			const newWork = {
+				imageUrl,
+				title: titleInput.value,
+				categoryId: categoryInput.value
+			};
+			addWorkToGallery(newWork);
+			// Fermer la modale et réinitialiser les champs
+			document.querySelector('.select-modal').style.display = 'none';
+			titleInput.value = '';
+			categoryInput.selectedIndex = 0;
+			imagePreviewContainer.innerHTML = '';
+		}
+	});
+	
+ }
+ 
+ // Ajouter le travail à la galerie
+ function addWorkToGallery(work) {
+	const gallery = document.querySelector('.gallery');
+	const figure = document.createElement('figure');
+	const img = document.createElement('img');
+	img.src = work.imageUrl;
+	img.alt = work.title;
+	const caption = document.createElement('figcaption');
+	caption.textContent = work.title;
+ 
+	figure.appendChild(img);
+	figure.appendChild(caption);
+	gallery.appendChild(figure);
+ 
+	works.push(work); // Ajouter le nouveau travail à la liste globale works
+ } 
