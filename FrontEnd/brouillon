@@ -1,4 +1,4 @@
-// Fonction pour afficher l'image prévisualisée dans la modale//
+/*// Fonction pour afficher l'image prévisualisée dans la modale//
 function displayImagePreview(imageUrl) {
 	const imagePreviewContainer = document.querySelector('.ajout-image');  // Conteneur pour l'image dans la modale
 	imagePreviewContainer.innerHTML = '';  // Réinitialiser (pour une nouvelle image)
@@ -70,4 +70,49 @@ function displayImagePreview(imageUrl) {
 	gallery.appendChild(figure);
  
 	works.push(work); // Ajouter le nouveau travail à la liste globale works
- } 
+ }*/
+
+
+
+
+
+/*// GESTION DES SUPPRESSIONS WORKS
+async function deleteImg(e) {
+    e.preventDefault();
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+        return;
+    }
+
+    const imageId = e.target.closest('figure')?.dataset.id;
+    if (!imageId) {
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:5678/api/works/${imageId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        if (!response.ok) return;
+
+        console.log('Image supprimée avec succès');
+        e.target.closest('figure').remove();
+
+        // 🎯 1. Fermer la modale
+        closeModal();
+
+        // 🎯 2. Mettre à jour `.gallery` et `.img_modal`
+        await gallery();  // Recharge la galerie principale
+        await img_modal(); // Recharge la galerie modale
+
+        console.log('Work supprimé avec succès et galeries mises à jour.');
+    } catch {
+    }
+}*/
+	
