@@ -338,7 +338,7 @@ document.getElementById("valider-modal").addEventListener("click", () => {
   }
 });
 
-
+// Fonction pour le rechargement de la page //
 async function uploadWork(imageFile, title, categoryId) {
   const formData = new FormData();
   formData.append("image", imageFile);
@@ -397,3 +397,26 @@ function addWorkToGallery(work) {
   works.push(work);
 }
 
+// Fonction pour la suppression des travaux //
+
+/*async function deleteImg(e) {
+  e.preventDefault();
+
+  const token = localStorage.getItem('token');
+  if (!token) {
+      return;
+  }
+
+  const imageId = e.target.closest('figure')?.dataset.id;
+  if (!imageId) {
+      return;
+  }
+
+  try {
+      const response = await fetch(`http://localhost:5678/api/works/${imageId}`, {
+          method: 'DELETE',
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+          },
+      };*/
