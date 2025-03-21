@@ -127,7 +127,8 @@ const showAllImagesInModal = () => {
 
   works.forEach((work) => {
     // Crée un conteneur pour chaque image
-    const imageContainer = document.createElement("div");
+    const imageContainer = document.createElement("figure");
+    imageContainer.dataset.id=work.id;
     imageContainer.classList.add("image-container"); // Classe pour styliser le conteneur de l'image
 
     // Créer l'image
@@ -141,9 +142,10 @@ const showAllImagesInModal = () => {
     trashIcon.classList.add("fa-regular", "fa-trash-can"); // Ajouter les classes de l'icône de la poubelle
 
     // Ajouter un gestionnaire pour supprimer l'image
-    trashIcon.addEventListener("click", () => {
-      imageContainer.remove(); // Supprimer l'image quand on clique sur la poubelle
-    });
+     trashIcon.addEventListener("click", async(e) => {
+     await deleteImg(e);
+     imageContainer.remove(); // Supprimer l'image quand on clique sur la poubelle
+     });
 
     // Ajouter l'image et l'icône au conteneur
     imageContainer.appendChild(img);
@@ -399,24 +401,30 @@ function addWorkToGallery(work) {
 
 // Fonction pour la suppression des travaux //
 
-/*async function deleteImg(e) {
+async function deleteImg(e) {
   e.preventDefault();
 
   const token = localStorage.getItem('token');
   if (!token) {
-      return;
+     return;
   }
 
-  const imageId = e.target.closest('figure')?.dataset.id;
+  const imageId = e.target.closest('figure').dataset.id; //recupère la balise html figure avec donnée id
   if (!imageId) {
       return;
   }
 
   try {
-      const response = await fetch(`http://localhost:5678/api/works/${imageId}`, {
+      await fetch(`http://localhost:5678/api/works/${imageId}`, {
           method: 'DELETE',
           headers: {
-              'Content-Type': 'application/json',
               Authorization: `Bearer ${token}`,
           },
-      };*/
+      });
+      await generateGallery()
+  }
+    
+  catch(e){console.log(e)}
+  
+}
+
