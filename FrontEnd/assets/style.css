@@ -180,6 +180,7 @@ button{
 	display: flex;
 	text-align: center;
 	gap: 10px;
+	cursor: pointer;
 }
 
 .img_modal img{
@@ -360,7 +361,7 @@ button{
 		padding: 20px;
 		border: 1px solid #888;
 		width: 646px;
-		height: 725px;
+		height: 557px;
 
 	  }
 	  .close {
