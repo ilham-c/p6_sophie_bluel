@@ -338,6 +338,11 @@ button{
 	margin-bottom: 50px;
     margin-top: -51px
 }
+		
+#valider-modal:active {
+	background-color: #1D6154;
+	color: white;
+}		
 
 	.modal {
 		display: none; /* Caché par défaut */

@@ -66,7 +66,7 @@ function login(username, password) {
         if (error.message.includes('invalid credentials')) {
             showError('Nom d\'utilisateur ou mot de passe incorrect.');
         } else {
-            showError('Erreur lors de la connexion : ' + error.message);
+            showError('Les identifiants sont incorrects' );
         }
     });
 }

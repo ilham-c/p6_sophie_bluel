@@ -5,6 +5,7 @@ window.addEventListener("load", (event) => {
 
 
 let works = []; // Variable pour stocker les travaux au niveau global
+let selectedFile = null;
 const titleInput = document.getElementById("title");
 const categoryInput = document.getElementById("category");
 const validerButton = document.getElementById("valider-modal");
@@ -261,6 +262,8 @@ const fileInput = event.target;
 const file = fileInput.files[0]; // Récupérer le fichier sélectionné
 
 if (file) {
+  selectedFile = file ; // Stockage du fichier dans la variable selectedFile
+
   const reader = new FileReader();
 
   reader.onload = function (e) {
@@ -324,6 +327,9 @@ if (image && titleInput.value.trim() && categoryInput.value !== "0") {
     categoryId: categoryInput.value,
   };
   addWorkToGallery(newWork);
+
+  // Appel ici la fonction uploadWork avec le fichier 
+  uploadWork(selectedFile, titleInput.value.trim(),  categoryInput.value);
   document.querySelector('.select-modal').style.display='none';
 
   // Réinitialiser les champs
@@ -335,15 +341,23 @@ if (image && titleInput.value.trim() && categoryInput.value !== "0") {
 
   // Réinitialiser l'affichage
   resetAjoutImage();
+
+  // Réinitialiser selectedFile
+  selectedFile = null;
 }
 });
 
 // Fonction pour le rechargement de la page //
 async function uploadWork(imageFile, title, categoryId) {
-const formData = new FormData();
+  console.log("test");
+  console.log("image : ", imageFile)
+  console.log("title : ", title)
+  console.log("category : ", categoryId)
+  let formData = new FormData();
 formData.append("image", imageFile);
 formData.append("title", title);
 formData.append("category", categoryId);
+
 
 try {
     const response = await fetch("http://localhost:5678/api/works", {
