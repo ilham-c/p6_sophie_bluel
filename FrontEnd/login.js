@@ -1,37 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.querySelector('#contact'); // Assurez-vous que l'ID est correct
-    const errorMessageDiv = document.querySelector('#errorMessage'); // Récupère le div d'erreur
+    const loginForm = document.querySelector('#contact'); 
+    const errorMessageDiv = document.querySelector('#errorMessage'); 
 
     loginForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêche le rechargement de la page
+        event.preventDefault();
         const username = document.querySelector('#email').value;
         const password = document.querySelector('#password').value;
 
-        // Réinitialise le message d'erreur à chaque nouvelle tentative de connexion
+        // Réinitialise le message d'erreur à chaque nouvelle tentative de connexion //
         errorMessageDiv.style.display = 'none'; 
         errorMessageDiv.innerText = '';
 
-        login(username, password); // Appel de la fonction de connexion
+        login(username, password); 
     });
 
-    // Vérification de l'état de la connexion pour modifier le texte du lien
+    // Vérification de l'état de la connexion pour modifier le texte du lien //
     const token = localStorage.getItem('token');
-    const loginLink = document.querySelector('#loginLink'); // Le lien de connexion dans le menu
+    const loginLink = document.querySelector('#loginLink');
 
-    // Vérifie si l'utilisateur est sur la page de login
+    // Vérifie si l'utilisateur est sur la page de login //
     if (window.location.pathname.includes("login.html")) {
-        // Si tu es sur la page login.html, laisse "Login" dans le lien
+       
         loginLink.textContent = 'Login';
         loginLink.addEventListener('click', () => {
-            window.location.href = 'login.html'; // Si l'utilisateur clique sur le lien, il est redirigé vers la page de login
+            window.location.href = 'login.html'; 
         });
     } else if (token) {
-        loginLink.textContent = 'Logout'; // Si connecté, afficher "Logout"
-        loginLink.addEventListener('click', logout); // Ajoute un événement pour se déconnecter
+        loginLink.textContent = 'Logout'; 
+        loginLink.addEventListener('click', logout); 
     } else {
-        loginLink.textContent = 'Login'; // Si non connecté, afficher "Login"
+        loginLink.textContent = 'Login'; 
         loginLink.addEventListener('click', () => {
-            window.location.href = 'login.html'; // Redirige vers la page de connexion
+            window.location.href = 'login.html';
         });
     }
 });
@@ -52,8 +52,8 @@ function login(username, password) {
     })
     .then(data => {
         if (data.token) {
-            localStorage.setItem('token', data.token); // Stocke le token dans localStorage
-            window.location.href = 'index.html'; // Redirige vers la page d'accueil
+            localStorage.setItem('token', data.token);
+            window.location.href = 'index.html';
         } else {
             console.error('Token manquant dans la réponse :', data);
             showError('Erreur : le serveur a répondu sans un token valide.');
@@ -62,7 +62,7 @@ function login(username, password) {
     .catch(error => {
         console.error('Erreur:', error);
 
-        // Gestion des erreurs spécifiques (par exemple "invalid credentials")
+       
         if (error.message.includes('invalid credentials')) {
             showError('Nom d\'utilisateur ou mot de passe incorrect.');
         } else {
@@ -71,15 +71,15 @@ function login(username, password) {
     });
 }
 
-// Fonction pour afficher dynamiquement un message d'erreur dans le div
+// Fonction pour afficher dynamiquement un message d'erreur dans le div // 
 function showError(message) {
     const errorMessageDiv = document.querySelector('#errorMessage');
-    errorMessageDiv.style.display = 'block'; // Affiche le div d'erreur
-    errorMessageDiv.innerText = message; // Ajoute le message d'erreur
+    errorMessageDiv.style.display = 'block'; 
+    errorMessageDiv.innerText = message;
 }
 
 function logout(event) {
-    event.preventDefault(); // Empêche le comportement par défaut du lien
-    localStorage.removeItem('token'); // Supprime le token du localStorage
-    window.location.href = 'index.html'; // Redirige vers la page d'accueil
+    event.preventDefault();
+    localStorage.removeItem('token');
+    window.location.href = 'index.html';
 }
